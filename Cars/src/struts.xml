@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+    <package name="Cars" namespace="/" extends="struts-default">
+
+        <action name="UsersAction" class="edu.tinzel.Cars.action.UsersAction">
+            <result name="loginsuccess" type="redirect">UroleptreeAction!urpTree.action</result>
+          	<result name="defeat">/login.jsp</result>
+             
+        </action>
+        <action name="UroleptreeAction" class="edu.tinzel.Cars.action.UroleptreeAction">
+        	<result name="ss">/index.html</result>
+        	<result name="listuser">../system/listuser.jsp</result>
+        	<result name="updateuser">../system/updateuser.jsp</result>
+       		<result name="listrole">../system/listrole.jsp</result>
+       		<result name="updaterole">../system/updaterole.jsp</result>
+       		<result name="listpur">../system/listpur.jsp</result>
+       		<result name="updatepur">../system/updatepur.jsp</result>
+       		
+       		
+        </action>
+        
+         <action name="StocksAction" class="edu.tinzel.Cars.action.StocksAction">
+        	<result name="querysto">../warehouse/warehouseList.jsp</result>
+        	<result name="stoByIds">../warehouse/updatawarehouse.jsp</result>
+        	
+        </action>
+        <action name="CarsAction" class="edu.tinzel.Cars.action.CarsAction">
+        	<result name="addcar">../warehouse/addcar.jsp</result>
+        	<result name="listcar">../sell/listcar.jsp</result>
+        	<result name="stocelist">../warehouse/stocelist.jsp</result>
+			<result name="Bycar">../sell/updatecar.jsp</result>
+        </action>
+        
+         <action name="OrderAction" class="edu.tinzel.Cars.action.OrderAction">
+        	<result name="SellList">../sell/SellList.jsp</result>	
+			<result name="Listo">../sell/listorder.jsp</result>
+			<result name="order">../sell/order.jsp</result>
+        </action>
+        
+         <action name="CustomerAction" class="edu.tinzel.Cars.action.CustomerAction">
+        	<result name="firlist">../customer/listfactory.jsp</result>	
+			<result name="customerlist">../customer/listcustomer.jsp</result>
+			<result name="vislist">../customer/visit.jsp</result>
+			<result name="updfirm">../customer/updatafactory.jsp</result>
+			<result name="updcust">../customer/updatacustomer.jsp</result>
+			<result name="addfirmsdeaf">../customer/addfactory.jsp</result>
+			<result name="addcustomersdeaf">../customer/addcustomer.jsp</result>
+        </action>
+    </package>
+	<!--继承jfreechart-default包而不在是struts-default-->
+	<package name="jfreechartPlugin" namespace="/" extends="jfreechart-default">		
+	   <!-- JFreeChartAction信息配置 -->
+	   <action name="jFreeChart_*" class="edu.tinzel.Cars.action.CustTjAction" method="{1}">
+	       <result name="success" type="chart">
+	          <!--  定义JFreeChart报表的大小 -->
+	           <param name="width">800</param>
+	           <param name="height">600</param>
+	       </result>
+	   </action>
+	   
+	   <action name="barChart" class="edu.tinzel.Cars.action.CustTjAction">
+	       <result name="success" type="chart">
+	           <!-- 定义JFreeChart报表的大小 -->
+	           <param name="width">800</param>
+	           <param name="height">600</param>
+	       </result>
+	   </action>
+	</package>
+
+
+    <!-- Add packages here -->
+
+</struts>
